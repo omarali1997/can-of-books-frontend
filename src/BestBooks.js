@@ -39,7 +39,7 @@ class BestBooks extends React.Component {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="https://wallpaperaccess.com/full/6875178.jpg"
+          src='./image.jpg'
           alt="First slide"
         />
         <Carousel.Caption>
