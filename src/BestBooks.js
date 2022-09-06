@@ -10,7 +10,7 @@ class BestBooks extends React.Component {
     super(props);
     this.state = {
       books: [],
-      showFlag : false,
+      // showFlag : false,
       currentBook : []
     }
   }
@@ -19,7 +19,7 @@ class BestBooks extends React.Component {
 
   componentDidMount = () => {
     axios
-      .get(`https://https://bookserver03.herokuapp.com/books`)
+      .get(`https://bookserver03.herokuapp.com/books`)
       .then(result => {
         this.setState({
           books: result.data
@@ -43,7 +43,7 @@ class BestBooks extends React.Component {
     }
 
     axios
-      .post(`https://https://bookserver03.herokuapp.com/books`, obj)
+      .post(`https://bookserver03.herokuapp.com/books`, obj)
       .then(result => {
         this.setState({
           books: result.data
@@ -56,7 +56,7 @@ class BestBooks extends React.Component {
 
   deleteBook = (id) => {
     axios
-      .delete(`https://https://bookserver03.herokuapp.com/books/${id}`)
+      .delete(`https://bookserver03.herokuapp.com/books/${id}`)
       .then(result => {
         this.setState({
           books: result.data
@@ -90,7 +90,7 @@ class BestBooks extends React.Component {
     }
     const id = this.state.currentBook._id;
     axios
-    .put(`https://https://bookserver03.herokuapp.com/books/${id}`, obj)
+    .put(`https://bookserver03.herokuapp.com/books/${id}`, obj)
     .then(result => {
       this.setState({
         books: result.data
