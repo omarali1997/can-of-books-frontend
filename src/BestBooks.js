@@ -140,7 +140,7 @@ class BestBooks extends React.Component {
                 <p>{item.description}</p>
                 <h3>{item.status}</h3>
                 <Button onClick={() => this.deleteBook(item._id)} variant="outline-danger">Delete</Button>
-                <Button onClick={() => this.openForm(item)} variant="outline-danger">Update</Button>
+                <Button onClick={() => this.openForm(item)} variant="outline-success">Update</Button>
 
               </Carousel.Caption>
             </Carousel.Item>
