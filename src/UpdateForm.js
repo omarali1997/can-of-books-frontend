@@ -14,27 +14,26 @@ class UpdateForm extends React.Component {
                     </Modal.Header>
                     <Modal.Body>
                         <Form onSubmit={this.props.updateBook}>
-                            {/* {this.props.currentBook.title} */}
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>Book Title</Form.Label>
-                                <Form.Control type="text" placeholder="Book Title" 
-                                name="bookTitle" defaultValue={this.props.currentBook.title} />
+                                <Form.Control type="text" placeholder="Book Title"
+                                    name="bookTitle" defaultValue={this.props.currentBook.title} />
                             </Form.Group>
 
 
 
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>Book Description</Form.Label>
-                                <Form.Control type="text" placeholder="Book Description" 
-                                name="bookDescription" defaultValue={this.props.currentBook.description} />
+                                <Form.Control type="text" placeholder="Book Description"
+                                    name="bookDescription" defaultValue={this.props.currentBook.description} />
                             </Form.Group>
 
 
 
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>Book Status</Form.Label>
-                                <Form.Control type="text" placeholder="Book Status" 
-                                name="bookStatus" defaultValue={this.props.currentBook.status} />
+                                <Form.Control type="text" placeholder="Book Status"
+                                    name="bookStatus" defaultValue={this.props.currentBook.status} />
                             </Form.Group>
 
                             <Button variant="primary" type="submit">
@@ -43,7 +42,7 @@ class UpdateForm extends React.Component {
                         </Form>
 
                     </Modal.Body>
-                    <Modal.Footer>                      
+                    <Modal.Footer>
                     </Modal.Footer>
                 </Modal>
             </>
