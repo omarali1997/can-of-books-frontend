@@ -2,13 +2,16 @@ import React from 'react';
 import axios from 'axios';
 import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
+import UpdateForm from './UpdateForm';
 
 
 class BestBooks extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      books: []
+      books: [],
+      showFlag : false,
+      currentBook : []
     }
   }
 
@@ -16,7 +19,7 @@ class BestBooks extends React.Component {
 
   componentDidMount = () => {
     axios
-      .get(`https://bookserver03.herokuapp.com/books`)
+      .get(`https://https://bookserver03.herokuapp.com/books`)
       .then(result => {
         this.setState({
           books: result.data
@@ -40,7 +43,7 @@ class BestBooks extends React.Component {
     }
 
     axios
-      .post(`https://bookserver03.herokuapp.com/books`, obj)
+      .post(`https://https://bookserver03.herokuapp.com/books`, obj)
       .then(result => {
         this.setState({
           books: result.data
@@ -53,7 +56,7 @@ class BestBooks extends React.Component {
 
   deleteBook = (id) => {
     axios
-      .delete(`https://bookserver03.herokuapp.com/books/${id}`)
+      .delete(`https://https://bookserver03.herokuapp.com/books/${id}`)
       .then(result => {
         this.setState({
           books: result.data
@@ -62,6 +65,41 @@ class BestBooks extends React.Component {
       .catch(err => {
         console.log(err);
       })
+  }
+
+  openForm = (item) => {
+    this.setState({
+      showFlag : true,
+      currentBook : item
+    })
+    console.log(item);
+  }
+
+  handleClose = () =>{
+    this.setState({
+      showFlag : false
+    })
+  }
+
+  updateBook = (event) =>{
+    event.preventDefault();
+    let obj = {
+      title : event.target.bookTitle,
+      description : event.target.bookDescription,
+      status : event.target.bookStatus
+    }
+    const id = this.state.currentBook._id;
+    axios
+    .put(`https://https://bookserver03.herokuapp.com/books/${id}`, obj)
+    .then(result => {
+      this.setState({
+        books: result.data
+      })
+      this.handleClose();
+    })
+    .catch(err => {
+      console.log(err);
+    })
   }
 
   render() {
@@ -102,6 +140,8 @@ class BestBooks extends React.Component {
                 <p>{item.description}</p>
                 <h3>{item.status}</h3>
                 <Button onClick={() => this.deleteBook(item._id)} variant="outline-danger">Delete</Button>
+                <Button onClick={() => this.openForm(item)} variant="outline-danger">Update</Button>
+
               </Carousel.Caption>
             </Carousel.Item>
           )
@@ -110,6 +150,12 @@ class BestBooks extends React.Component {
         <h3>No Books Found :(</h3>
       )
     }
+    <UpdateForm 
+    show = {this.state.showFlag}
+    handleClose = {this.handleClose}
+    updateBook = {this.updateBook}
+    currentBook = {this.state.currentBook}
+    />
       </>
     )
   }
