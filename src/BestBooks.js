@@ -84,9 +84,9 @@ class BestBooks extends React.Component {
   updateBook = (event) =>{
     event.preventDefault();
     let obj = {
-      title : event.target.bookTitle,
-      description : event.target.bookDescription,
-      status : event.target.bookStatus
+      title : event.target.bookTitle.value,
+      description : event.target.bookDescription.value,
+      status : event.target.bookStatus.value
     }
     const id = this.state.currentBook._id;
     axios
@@ -105,7 +105,7 @@ class BestBooks extends React.Component {
   render() {
     /* TODO: render all the books in a Carousel */
     return (
-      <>
+      <div>
 
 
 
@@ -156,7 +156,7 @@ class BestBooks extends React.Component {
     updateBook = {this.updateBook}
     currentBook = {this.state.currentBook}
     />
-      </>
+      </div>
     )
   }
 }
