@@ -5,7 +5,9 @@ class Profile extends Component {
   render() {
     const { user } = this.props.auth0;
     return <div>
-       <p> Hello {user.name}</p>
+       <p> Welcome {user.name}</p>
+       <p>  Email {user.email}</p>
+       <p> Nice picture {user.name} </p>
         <img  src={user.picture}/>
 
         </div>;
